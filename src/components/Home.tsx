@@ -24,7 +24,7 @@ const Home = () => {
         <TypeName/>
         </div>
         <p style={{fontFamily:'cursive'}} className='capitalize text-[19px]  w-[80%] sm:text-[23px] sm:w-[75%] md:text-[25px] md:w-[65%] text-center'>
-            "current: assistant proffessor(pharmacy) at bsa college of eng. and technology mathura"
+            current: assistant proffessor(pharmacy) at bsa college of eng. and technology mathura
         </p>
         <div className='flex items-center gap-4'>
             <div className={iconStyle}>
