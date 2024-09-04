@@ -17,7 +17,6 @@ interface FormData {
 
 
 const Note: React.FC<NoteProps|any> = ({ note }) => {
-  console.log(note)
   return (
     <div className="h-[100vh]">
       {note?.fileURL ? (
@@ -29,9 +28,6 @@ const Note: React.FC<NoteProps|any> = ({ note }) => {
               </button>
             </a>
           </div>
-         {
-          note.fileURL
-         }
           <iframe
             src={`https://docs.google.com/viewer?url=${encodeURIComponent(note.fileURL)}&embedded=true`}
             className="w-full h-full border-0"

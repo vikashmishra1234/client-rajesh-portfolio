@@ -9,6 +9,7 @@ import  TypeName  from './utils/TypeName';
 import Link from 'next/link';
 const iconStyle = 'md:p-4 p-3 bg-white rounded-full border-2 border-gray-300';
 const Home = () => {
+
   return (
     <section className='bg-blue-100 pt-[7rem] gap-4 flex items-center h-[calc(100vh)] justify-start  flex-col'>
         <div className=''>

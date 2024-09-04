@@ -1,4 +1,4 @@
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
 
 
@@ -30,6 +30,20 @@ export const fetchNote =async(id:string):Promise<FormData|null>=> {
         }
       } catch (error) {
         console.error('Error fetching document:', error);
+        return null;
+      }
+}
+
+export const fetchNotesHome=async()=>{
+    try {
+        const querySnapshot = await getDocs(collection(db, "files"));
+        const data: any = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        return data;
+      } catch (error) {
+        console.error("Error fetching data: ", error);
         return null;
       }
 }
