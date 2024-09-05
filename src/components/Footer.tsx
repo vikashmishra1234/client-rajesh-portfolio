@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container max-w-[100%]  px-4">
         <div className="flex flex-wrap text-left lg:text-left">
           <div className="w-full  px-4">
-            <h4 className="text-3xl sm:text-5xl font-semibold text-blueGray-700">Let's connect with developer!</h4>
+            <h4 className="text-3xl sm:text-5xl font-semibold text-blueGray-700">Let&apos;s connect with developer!</h4>
             <h5 className="sm:text-[24px]  mb-2 mt-3 text-blueGray-600">
               Find us on any of these platforms, we respond within 1-2 business days.
             </h5>
