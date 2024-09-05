@@ -1,38 +1,25 @@
 "use server"
 import { addDoc, auth, collection, db, getDownloadURL, ref, storage, uploadBytes } from "@/lib/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {  signInWithEmailAndPassword } from "firebase/auth";
 
 
 
-export const firebaseAuthentication = async (email:string,password:string,isSignUP:boolean): Promise<boolean> => {
+export const firebaseAuthentication = async (email:string,password:string): Promise<boolean> => {
 //   const { email, password, isSignUp } = credentials;
 
-  if (isSignUP) {
-    try {
-      // Sign up the user with email and password
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      alert("SignUp successful");
-      console.log("Signed Up with:", userCredential.user);
-      return true
-    } catch (error) {
-      console.error("Sign-Up Error:", error);
-      alert("Something went wrong during sign-up");
-      return false
-    }
-  } else {
+
     try {
       // Log in the user with email and password
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful");
+      
       console.log("Logged In with:", userCredential.user);
       return true;
     } catch (error) {
       console.error("Login Error:", error);
-      alert("Something went wrong during login");
+      
       return false
     }
   }
-};
 type formData={
     file:string | any;
     title:string;

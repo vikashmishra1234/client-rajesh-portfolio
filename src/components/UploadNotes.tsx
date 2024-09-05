@@ -23,7 +23,7 @@ const FormComponent: React.FC = () => {
     branch: '',
     file: null,
   });
-  const [isLogin,setLogin] = useState<boolean>(false);
+  const [isLogin,setLogin] = useState<any>(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {  
       if (user) {
@@ -36,9 +36,9 @@ const FormComponent: React.FC = () => {
     return () => unsubscribe();
   }, []);
   
-  if(!isLogin){
-    return <AuthPage/>
-  }
+  // if(!isLogin){
+  //   return <AuthPage/>
+  // }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
@@ -59,6 +59,10 @@ const FormComponent: React.FC = () => {
     e.preventDefault();
     firebaseNotesUpload(formData);
   };
+  if(isLogin==null){
+    return <h3>Loading...</h3>
+  }
+else if(isLogin){
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4 bg-white shadow-md rounded-lg">
@@ -113,7 +117,11 @@ const FormComponent: React.FC = () => {
         Submit
       </button>
     </form>
-  );
+  )
+}
+else{
+  return <AuthPage/>
+}
 };
 
 export default FormComponent;
