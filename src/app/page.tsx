@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Notes from '@/components/Notes'
 import dynamic from 'next/dynamic'
 import React from 'react'
@@ -13,6 +14,7 @@ const page = () => {
 
       <Home/>
       <Notes/>
+      <Footer/>
       
     </main>
   )

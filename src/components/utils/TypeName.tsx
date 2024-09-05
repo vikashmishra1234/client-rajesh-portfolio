@@ -6,7 +6,7 @@ const TypeName = () => {
   return (
     <TypeAnimation
     sequence={[
-      'Rajesh Singh Chuhan', 
+      'Rajesh Singh Chauhan', 
       2000, 
       'Bussiness Expert', 
       2000, 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { firebaseAuthentication } from "../utils/FirebaseAuth";
+import axios from "axios";
 
 const AuthPage: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
@@ -8,8 +9,15 @@ const AuthPage: React.FC = () => {
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-     firebaseAuthentication(email,password,isSignUp);
-  //  setLogin(isLoginOrSignUp)
+    if(isSignUp){
+      try {
+        const res = await axios.post('/api/signup');
+        console.log(res);
+      } catch (error:any) {
+        console.log(error.message);
+      }
+    }
+    //  firebaseAuthentication(email,password,isSignUp);
   };
 
   return (

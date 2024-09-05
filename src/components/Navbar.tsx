@@ -14,7 +14,7 @@ export default function Navbar() {
            Resume
           </Link>
           <Link href="/uploadnotes" className="text-white  bg-[#9191ff] p-[4px_10px_8px_10px] rounded-[7px]">
-           Add Notes
+           Admin
           </Link>
        
         </div>
