@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { firebaseAuthentication } from "../utils/FirebaseAuth";
-
-const AuthPage: React.FC = () => {
+interface props{
+  setChange:(value:boolean)=>void;
+  change:boolean
+}
+const AuthPage: React.FC<props> = ({setChange,change}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState<string>("");
 
@@ -11,7 +14,7 @@ const AuthPage: React.FC = () => {
     try {
     const res:boolean = await firebaseAuthentication(email,password);
     if(res){
-
+      setChange(!change);
       alert("login successul")
     }
      

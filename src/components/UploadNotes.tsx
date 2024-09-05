@@ -24,6 +24,7 @@ const FormComponent: React.FC = () => {
     file: null,
   });
   const [isLogin,setLogin] = useState<any>(null);
+  const [change,setChange] = useState(true);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {  
       if (user) {
@@ -34,7 +35,7 @@ const FormComponent: React.FC = () => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [change]);
   
   // if(!isLogin){
   //   return <AuthPage/>
@@ -120,7 +121,7 @@ else if(isLogin){
   )
 }
 else{
-  return <AuthPage/>
+  return <AuthPage change={change} setChange={setChange}/>
 }
 };
 
