@@ -17,7 +17,7 @@ const TypeName = () => {
     wrapper="p"
     cursor={true}
     repeat={Infinity}
-    className='text-[28px] md:text-[45px]'
+    className='text-3xl md:text-[45px]'
   />
   )
 }

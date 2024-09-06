@@ -1,4 +1,4 @@
-"use server"
+"use client"
 import { addDoc, auth, collection, db, getDownloadURL, ref, storage, uploadBytes } from "@/lib/firebase";
 import {  signInWithEmailAndPassword } from "firebase/auth";
 

@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { auth } from '../lib/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import AuthPage from './auth/Auth';
 import { firebaseNotesUpload } from './utils/FirebaseAuth';
 
@@ -25,21 +25,31 @@ const FormComponent: React.FC = () => {
   });
   const [isLogin,setLogin] = useState<any>(null);
   const [change,setChange] = useState(true);
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {  
       if (user) {
+        
+        console.log("user is logined", user);
         setLogin(true)
       } else {
+        console.log("user is not logined")
         setLogin(false)
       }
     });
 
     return () => unsubscribe();
+    // signOut(auth)
+    // .then(() => {
+    //   console.log("User signed out successfully.");
+    //   // Perform any additional actions after logout, like redirecting the user.
+    // })
+    // .catch((error) => {
+    //   console.error("Error signing out: ", error);
+    // });
   }, [change]);
   
-  // if(!isLogin){
-  //   return <AuthPage/>
-  // }
+ 
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
